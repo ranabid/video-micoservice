@@ -1,0 +1,5 @@
+https://github.com/aruld/jersey-streaming/blob/master/src/main/java/com/aruld/jersey/streaming/MediaResource.java
+
+https://github.com/paypal/resteasy-spring-boot/tree/master/sample-app
+
+http://localhost:8080/video-micro-service/echo

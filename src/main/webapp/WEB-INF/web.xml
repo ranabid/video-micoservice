@@ -3,23 +3,22 @@
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
 	version="3.1">
 	<display-name>RestEasy Spring Microservice Appliction</display-name>
-	
-	<!-- Spring MVC Dispatcher Servlet -->
 	<servlet>
-		<servlet-name>spring-mvc-resteasy</servlet-name>
+		<servlet-name>springmvc</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>classpath:springmvc-servlet.xml</param-value>
+		</init-param>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>spring-mvc-resteasy</servlet-name>
+		<servlet-name>springmvc</servlet-name>
 		<url-pattern>/*</url-pattern>
 	</servlet-mapping>
-
-	<!-- loading Spring Context for registering beans with ApplicationContext -->
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>WEB-INF/spring-mvc-resteasy-servlet.xml</param-value>
-	</context-param>
-
+	
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+	</welcome-file-list>
 </web-app>

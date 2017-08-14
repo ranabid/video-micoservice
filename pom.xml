@@ -17,6 +17,7 @@
 		<servlet.version>3.1.0</servlet.version>
 		<jstl.version>1.2</jstl.version>
 		<slf4.version>1.7.25</slf4.version>
+		<build.sourceDirectory>src/source_code</build.sourceDirectory>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
 
@@ -83,12 +84,12 @@
 		</dependency>
 
 		<!-- JSTL for JSP pages -->
-<!-- 		<dependency> -->
-<!-- 		<groupId>jstl</groupId> -->
-<!-- 		<artifactId>jstl</artifactId> -->
-<!-- 		<version>${jstl.version}</version> -->
-<!-- 		</dependency> -->
-		
+		<!-- <dependency> -->
+		<!-- <groupId>jstl</groupId> -->
+		<!-- <artifactId>jstl</artifactId> -->
+		<!-- <version>${jstl.version}</version> -->
+		<!-- </dependency> -->
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-api</artifactId>
@@ -121,6 +122,19 @@
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.0.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 		<finalName>video-microservice</finalName>

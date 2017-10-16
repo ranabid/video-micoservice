@@ -76,4 +76,18 @@ public class VideosService {
 
 	}
 
+	public File getThumbnail(String fileName) throws Exception {
+		final String imgFile = env.getProperty("videoRepo") + fileName;
+
+		File file = new File(imgFile);
+		System.out.println(file.getParent());
+		if (file.exists() && file.isFile()) {
+			return file;
+		} else {
+			LOGGER.info("file"+ imgFile +" does not exists");
+			throw new Exception("file does not exists");
+		}
+		
+	}
+
 }

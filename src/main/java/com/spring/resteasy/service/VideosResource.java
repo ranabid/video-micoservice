@@ -1,5 +1,11 @@
 package com.spring.resteasy.service;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
+import javax.imageio.ImageIO;
+import javax.management.monitor.Monitor;
 import javax.ws.rs.GET;
 import javax.ws.rs.HEAD;
 import javax.ws.rs.HeaderParam;
@@ -8,6 +14,8 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.ResponseBuilder;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,5 +49,15 @@ public class VideosResource {
 	public Response streamVideoContent(@PathParam("fileName") String fileName, @HeaderParam("Range") String range)
 			throws Exception {
 		return videosService.buildVideoStream(fileName, range);
+	}
+	
+	@GET
+	@Path("/image/{fileName}")
+	@Produces("image/jpeg")
+	public Response getThumbnail(@PathParam("fileName") String fileName) throws Exception {
+		
+		File file = videosService.getThumbnail(fileName);
+		return Response.ok(new FileInputStream(file)).build();
+		
 	}
 }
